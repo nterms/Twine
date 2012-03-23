@@ -1,0 +1,90 @@
+<h2>Getting Started</h2>
+<p>Please note that <strong>Roo</strong> is still in beta release and may contain many bugs and incomplete functions. However this simple tutorial would support you getting started on developing your amazing HTML5 canvas application with Roo.</p>
+<p>Keep in touch, there's more to come!</p>
+<h3>Download &amp; Install</h3>
+<p>Roo can be installed in two easy steps. Download and copy it into your <em>scripts</em> folder. In this case we call it <em>js</em>. Then add the following code into your HTML page.</p>
+<pre class="brush: js; html-script: true; highlight: [2]">
+	
+&lt;script type="text/javascript" src="js/roo.js" &gt;&lt;/script&gt;
+	
+</pre>
+
+<h3>Build your Stage</h3>
+<p><strong>Stage</strong> provides the background environment for your graphics application. All the layers of an application should be added to the stage to make them parts of the scene rendered ultimately.</p>
+<pre class="brush: js; highlight: [2]">
+window.onload = function() {
+	var stage = new Roo.Stage('container', 600, 400);
+}
+</pre>
+<p>Where <strong>container</strong> is the container element for the stage to be added into. Basically this could be a <em>&lt;div&gt;</em> element.</p>
+
+
+<h3>Shapes</h3>
+<p>	You may create a shape object of an existing primitive shape or define your own shape with basic drawing instructions. Creating primitive shape is a one step process.
+	Lets start by creating a <strong>Rectangle</strong> shape.
+</p>
+<pre class="brush: js; highlight: [3]">
+window.onload = function() {
+	var stage = new Roo.Stage('container', 600, 400);
+	var rect = new Roo.Rectangle(100, 50, 80, 90);
+}
+</pre>
+<p>A new <strong>Rectangle</strong> object - <em>rect</em> - is created with the configurations <strong>left</strong> = 100, <strong>top</strong> = 50, <strong>width</strong> = 80 and <strong>height</strong> = 90. </p>
+<p><a href="shapes.html">Shapes</a> section contains more about primitive and custom shapes.</p>
+<h3>A layered architecture</h3>
+<p>Objects are added to layers which are subsequently added to the <strong>Stage</strong> for rendering. See how we can create a layer and add objects to that layer.</p>
+<pre class="brush: js; highlight: [4,5,6]">
+window.onload = function() {
+	var stage = new Roo.Stage('container', 600, 400);
+	var rect = new Roo.Rectangle(100, 50, 80, 90);
+	var layer = new Roo.Layer();
+	layer.add(rect);
+	stage.add(layer);
+	stage.update();
+}
+</pre>
+<p>Note that the layer is added to the stage making it available for rendering and managing events on shape objects of that particular layer. Update the stage to render its content and make them visible.</p>
+<h3>Events</h3>
+<p>You may attach several events to the objects in your scene. To get you started on event handling, lets add a <em>click</em> event to the rectangle we created.</p>
+<pre class="brush: js; highlight: [7,8,9,10]">
+window.onload = function() {
+	var stage = new Roo.Stage('container', 600, 400);
+	var rect = new Roo.Rectangle(100, 50, 80, 90);
+	var layer = new Roo.Layer();
+	layer.add(rect);
+	stage.add(layer);
+	rect.onclick = function(evt) {
+		alert("You clicked on the rectangle!");
+	};
+	rect.draggable = true;
+	stage.update();
+}
+</pre>
+<p>You may make the objects draggable by setting its <em>draggable</em> property to <em>true</em>.</p>
+
+<h3>Putting it all together</h3>
+<pre class="brush: js; html-script: true;">
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;Roo - Sample Application&lt;/title&gt;
+		&lt;script type="text/javascript" src="js/roo.js" &gt;&lt;/script&gt;
+		&lt;script type="text/javascript"&gt;
+			window.onload = function() {
+				var stage = new Roo.Stage('container', 600, 400);
+				var rect = new Roo.Rectangle(100, 50, 80, 90);
+				var layer = new Roo.Layer();
+				layer.add(rect);
+				stage.add(layer);
+				rect.onclick = function(evt) {
+					alert("You clicked on the rectangle!");
+				};
+				rect.draggable = true;
+				stage.update();
+			}
+		&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div id="container"&gt;&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</pre>

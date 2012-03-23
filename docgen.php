@@ -9,7 +9,7 @@ $compile = true;
 if(!isset($_POST['generate'])) {
     $compile = false;
 }
-$baseUrl    = isset($_POST['base_url']) ? $_POST['base_url'] : 'http://roogl.org/docs';
+$baseUrl    = isset($_POST['base_url']) ? $_POST['base_url'] : 'http://www.example.com/docs';
 $path       = isset($_POST['root']) ? $_POST['root'] : dirname(__FILE__);
 $template   = isset($_POST['template']) ? $_POST['template'] : $path . DS . 'template.html';
 $sourceDir  = isset($_POST['source']) ? $_POST['source'] : $path . DS . 'docs-src';
@@ -47,6 +47,7 @@ if($compile && count($error) == 0) {
 function render($sourceDir, $targetDir, $template, $dir, $baseUrl) {
     $info = array();
     $error = array();
+    $htmldoctreeInfo = '<p>Generated with <a href="http://www.nterms.com/tools/htmldoctree">HTMLDocTree</a></p>';
     
     $info[] = "Entering directory: <em>" . $sourceDir . '</em><br/>';
     $source = opendir($sourceDir);
@@ -99,6 +100,7 @@ function render($sourceDir, $targetDir, $template, $dir, $baseUrl) {
                         $html = str_replace("<!-- {content} -->", $content, $template);
                         $html = str_replace("<!-- {disqus_identifier} -->", $pageId, $html);
                         $html = str_replace("<!-- {disqus_url} -->", $pageUrl, $html);
+                        $html = str_replace("<!-- {htmldoctree} -->", $htmldoctreeInfo, $html);
                         
                         fwrite($dest, $html);
                         fclose($dest);
@@ -125,7 +127,7 @@ function render($sourceDir, $targetDir, $template, $dir, $baseUrl) {
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
-        <title>PHP Application Documentation Compiler</title>
+        <title>HTMLDocTree - Folder Based HTML Documentation Compiler</title>
         <style type="text/css">
             body {
                 color: #555;
@@ -159,15 +161,23 @@ function render($sourceDir, $targetDir, $template, $dir, $baseUrl) {
             #main {
                 margin: 0 auto;
                 width: 800px;
-            }
+            }            
             /* Form */
             .button {
-                background: #f5f5f5;
+                background-color: #f5f5f5;
+                background-image: linear-gradient(bottom, rgb(221,221,221) 0%, rgb(255,255,255) 100%);
+                background-image: -o-linear-gradient(bottom, rgb(221,221,221) 0%, rgb(255,255,255) 100%);
+                background-image: -moz-linear-gradient(bottom, rgb(221,221,221) 0%, rgb(255,255,255) 100%);
+                background-image: -webkit-linear-gradient(bottom, rgb(221,221,221) 0%, rgb(255,255,255) 100%);
+                background-image: -ms-linear-gradient(bottom, rgb(221,221,221) 0%, rgb(255,255,255) 100%);
                 border: 1px solid #aaa;
                 border-radius: 3px;
+                box-shadow: 0 0 4px #ccc;
                 cursor: pointer;
+                font-weight: bold;
                 margin: 1em 0;
-                padding: 4px 8px;
+                padding: 8px;
+                text-shadow: 0 1px 1px #ffffff;
             }
             .form {
                 width: 100%;
@@ -175,6 +185,7 @@ function render($sourceDir, $targetDir, $template, $dir, $baseUrl) {
             .form .row {
                 background-color: #def;
                 border: 1px solid #acd;
+                border-radius: 3px;
                 margin: 4px 0;
                 position: relative;
                 width: 100%;
@@ -183,9 +194,11 @@ function render($sourceDir, $targetDir, $template, $dir, $baseUrl) {
                 border: 1px solid #8ac;
             }
             .form .row label {
+                color: #333;
                 display: inline-block;
                 font-weight: bold;
                 margin: 1em 1%;
+                text-shadow: 0 1px 1px #ffffff;
                 vertical-align: middle;
                 width: 30%;
             }
@@ -256,6 +269,7 @@ function render($sourceDir, $targetDir, $template, $dir, $baseUrl) {
             .tooltip {
                 background: #fffeee;
                 border-top: 1px solid #fff;
+                border-radius: 0 0 3px 3px;
                 color: #666;
                 display: none;
                 font-size: 11px;
@@ -286,8 +300,8 @@ function render($sourceDir, $targetDir, $template, $dir, $baseUrl) {
     </head>
     <body>
         <div id="main">
-            <h1>Documentation Compiler Tool</h1>
-            <p>HTML document merger and documentation generator</p>
+            <h1>HTMLDocTree - Documentation Compiler Tool</h1>
+            <p>Folder based HTML document compiler and template engine</p>
             <div id="parameters" class="form">
                 <form method="post" action="docgen.php">
                     <div class="row">

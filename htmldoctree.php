@@ -11,7 +11,7 @@ if(!isset($_POST['generate'])) {
 }
 $baseUrl    = isset($_POST['base_url']) ? $_POST['base_url'] : 'http://www.example.com';
 $deployPath = isset($_POST['deploy']) ? $_POST['deploy'] : '/docs';
-$path       = isset($_POST['root']) ? $_POST['root'] : dirname(__FILE__);
+$path       = dirname(__FILE__);
 $template   = isset($_POST['template']) ? $_POST['template'] : $path . DS . 'template.html';
 $sourceDir  = isset($_POST['source']) ? $_POST['source'] : $path . DS . 'docs-src';
 $targetDir  = isset($_POST['target']) ? $_POST['target'] : $path . DS . 'docs';
@@ -403,7 +403,8 @@ function getFileContent($file)
                         <label for="base_url">Base URL:</label><input type="text" id="base_url" name="base_url" value="<?php echo $baseUrl; ?>" class="inputbox" />
                         <a href="#" class="field-info"><span>?</span>
                             <div class="tooltip">
-                                <p>The URL you wish to publish the documentation</p>
+                                <p>The URL you wish to publish the documentation at. Do not use the trailing <em>/</em></p>
+                                <p>Eg: http://www.example.com</p>
                                 <div class="tiptag"></div>
                             </div>
                         </a>
@@ -412,16 +413,8 @@ function getFileContent($file)
                         <label for="deploy">Deploy Path:</label><input type="text" id="deploy" name="deploy" value="<?php echo $deployPath; ?>" class="inputbox" />
                         <a href="#" class="field-info"><span>?</span>
                             <div class="tooltip">
-                                <p></p>
-                                <div class="tiptag"></div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="row">
-                        <label for="root">Root Path:</label><input type="text" id="root" name="root" value="<?php echo $path; ?>" class="inputbox" />
-                        <a href="#" class="field-info"><span>?</span>
-                            <div class="tooltip">
-                                <p></p>
+                                <p>Deploy path relative to the <em>Base URL</em></p>
+                                <p>Eg: If you wish to publish this documentation at <em>http://www.example.com/docs</em>, simply enter <em>/docs</em> here.</p>
                                 <div class="tiptag"></div>
                             </div>
                         </a>
@@ -430,7 +423,7 @@ function getFileContent($file)
                         <label for="source">Source Path:</label><input type="text" id="source" name="source" value="<?php echo $sourceDir; ?>" class="inputbox" />
                         <a href="#" class="field-info"><span>?</span>
                             <div class="tooltip">
-                                <p></p>
+                                <p>The path where the source files are saved in your web server's file system.</p>
                                 <div class="tiptag"></div>
                             </div>
                         </a>
@@ -439,7 +432,7 @@ function getFileContent($file)
                         <label for="target">Target Path:</label><input type="text" id="target" name="target" value="<?php echo $targetDir; ?>" class="inputbox" />
                         <a href="#" class="field-info"><span>?</span>
                             <div class="tooltip">
-                                <p></p>
+                                <p>The path where the resulting documentation file tree should be saved.</p>
                                 <div class="tiptag"></div>
                             </div>
                         </a>
@@ -448,7 +441,7 @@ function getFileContent($file)
                         <label for="template">Template:</label><input type="text" id="template" name="template" value="<?php echo $template; ?>" class="inputbox" />
                         <a href="#" class="field-info"><span>?</span>
                             <div class="tooltip">
-                                <p></p>
+                                <p>The psth of the template file</p>
                                 <div class="tiptag"></div>
                             </div>
                         </a>
@@ -457,7 +450,7 @@ function getFileContent($file)
                         <label for="breadcrumb">Breadcrumb Separator:</label><input type="text" id="breadcrumb" name="breadcrumb" value="<?php echo $breadcrumbSep; ?>" class="inputbox" />
                         <a href="#" class="field-info"><span>?</span>
                             <div class="tooltip">
-                                <p></p>
+                                <p>The character used to separate the segments of the breadcrumb.</p>
                                 <div class="tiptag"></div>
                             </div>
                         </a>

@@ -12,13 +12,19 @@ I have not tested all the cases where the code fails and really appriciate your 
 - Templating
 - Recursive directory processing
 - Generates a unique identifire for each page
+- Process titles
+- Process meta tag contents (description)
+- Generates breadcrumbs
+- Single file distribution
 
 ### Goals
 
 - Templating
 - Recursive directory processing
 - Generating uinque ID for each page
-- Generatimg meta tag contents
+- Process page titles
+- Process meta tag contents
+- Generate breadcrumbs
 
 ### System requirements
 

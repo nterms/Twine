@@ -1,0 +1,311 @@
+/* ============================================================
+ * General
+ * ============================================================ */
+body {
+    background-color: #f5f5f5;
+	color: #4a4a4a;
+	font: 12px Tahoma, Geneva, sans-serif, Arial;
+}
+
+a, a:visited {
+	color: #5f8dd3;
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	color: #afc6e9;
+}
+
+h1, h2, h3, h4 {
+    font-weight: bold;
+    text-shadow: 0 1px 2px #fff;
+}
+
+h1, h2 {
+    color: #3771c8;
+}
+
+h1 {
+    font-size: 300%;
+}
+
+h2 {
+    font-size: 240%;
+}
+
+h3 {
+    font-size: 200%;
+}
+
+h4 {
+    font-size: 140%;
+}
+
+h5 {
+    font-size: 120%;
+}
+
+p {
+    margin: 12px 0;
+}
+/* ============================================================
+ * Layout
+ * ============================================================ */
+header {
+}
+
+#wrapper {
+	
+}
+
+#page {
+    border-bottom: 1px solid #fff;
+    margin: 0 auto;
+    width: 980px;
+}
+
+#top {
+    height: 40px;
+}
+
+#top .right {
+	float: right;
+	width: 300px;
+}
+
+#top .right .menu {
+	float: right;
+	list-style-type: none;
+	margin: 20px 0;
+	padding: 0;
+}
+
+#top .right .menu li {
+	display: inline-block;
+	float: left;
+	margin: 0 10px;
+}
+
+#main {
+    border-bottom: 1px solid #ddd;
+}
+
+
+/*  ====================================================
+    Utilities
+    ====================================================    */
+#up {
+	height: 48px;
+	position: fixed;
+	right: 20%;
+	top: 10px;
+	width: 48px;
+}
+
+#up a {
+    background: #f5f5f5 url("../img/home-32.png") no-repeat 8px 0;
+    color: #ccc;
+    display: block;
+    font-size: 90%;
+    font-weight: bold;
+	height: 20px;
+	padding-top: 34px;
+	text-align: center;
+	width: 48px;
+}
+
+#up a:hover {
+    background-position: -52px 0;
+    color: #aaa;
+}
+
+/*  ====================================================
+    Twine Banner
+    ====================================================    */
+#twine-banner {
+    
+}
+
+#twine-banner .left {
+    background: #f5f5f5 url("../img/twine-logo.png") no-repeat 0 0;
+    height: 360px;    
+}
+
+#twine-banner .left-inner .download {
+    display: block;
+    margin-top: 180px;
+}
+
+#twine-banner .left-inner .small {
+    font-size: 11px;
+    margin: 4px 8px 12px 80px;
+    text-align: center;
+}
+
+#twine-banner .content {
+    background: #f5f5f5 url("../img/twine-banner.png") no-repeat 0 0;
+    height: 340px;    
+}
+
+.section-separator {
+	height: 0;
+}
+
+.section {
+	background-color: #f5f5f5;
+    clear: both;
+}
+
+.section h1 {
+	color: #555555;
+	font-size: 40px;
+    margin: 0;
+}
+
+.section p {
+    clear: both;
+}
+
+.section .slogan {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.section .left {
+    float: left;
+    text-align: right;
+    width: 340px;
+}
+
+.section .left h2 {
+    margin: 0;
+}
+.section .content {
+    margin: 0 0 0 340px;
+}
+
+.section .bottom {
+    clear: both;
+	height: 0;
+}
+
+.section .left .left-inner {
+    padding: 0 40px 0 20px;
+}
+
+.section .content .content-inner {
+    overflow: hidden;
+    padding: 0 20px 0 0;
+}
+
+/*  ====================================================
+    Community
+    ====================================================    */
+.roo-coomunity {
+	margin: 1em 0;
+}
+
+.roo-coomunity #community-links {
+	float: right;
+}
+
+#community-links {
+	float: left;
+	list-style-type: square;
+	margin: 0;
+	padding: 0;
+}
+
+#community-links li {
+	display: inline-block;
+	float: left;
+	font-size: 95%;
+	margin: 0;
+	padding: 0 0.5em 0 0;
+}
+
+#community-links li a {
+	float: left;
+	line-height: 16px;
+	margin-right: 10px;
+	padding: 0.6em 0;
+}
+
+#community-links li a:hover {
+	text-decoration: none;
+}
+
+#community-links li a span.icon {
+	background: transparent url("../img/social-icons-16.png") no-repeat 0 0;
+	display: inline-block;
+	height: 16px;
+	margin: 2px 4px 0 0;
+	vertical-align: middle;
+	width: 16px;
+}
+
+#community-links li.home a span.icon {
+	background-position: 0 -48px;
+}
+
+#community-links li.home a:hover span.icon {
+	background-position: -48px -48px;
+}
+
+#community-links li.blog a span.icon {
+	background-position: 0 -80px;
+}
+
+#community-links li.blog a:hover span.icon {
+	background-position: -16px -80px;
+}
+
+#community-links li.facebook a span.icon {
+	background-position: 0 -48px;
+}
+
+#community-links li.facebook a:hover span.icon {
+	background-position: -16px -48px;
+}
+
+#community-links li.twitter a span.icon {
+	background-position: 0 -64px;
+}
+
+#community-links li.twitter a:hover span.icon {
+	background-position: -16px -64px;
+}
+
+#community-links li.github a span.icon {
+	background-position: 0 -96px;
+}
+
+#community-links li.github a:hover span.icon {
+	background-position: -16px -96px;
+}
+
+#community-links li.so a span.icon {
+	background-position: 0 -112px;
+}
+
+#community-links li.so a:hover span.icon {
+	background-position: -16px -112px;
+}
+
+#community-links li.love a span.icon {
+	background-position: 0 0;
+}
+
+#community-links li.love a:hover span.icon {
+	background-position: -16px 0;
+}
+
+
+#community-links li.love-roo a span.icon {
+	background-position: 0 -16px;
+}
+
+#community-links li.love-roo a:hover span.icon {
+	background-position: -16px -16px;
+}

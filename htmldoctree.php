@@ -240,6 +240,9 @@ function getFileContent($file)
                 color: #00aadd;
                 text-decoration: underline;
             }
+            em {
+            	font-family: fixed;
+            }
             h1 {
                 font-size: 160%;
                 margin: 1em 0 0.5em;

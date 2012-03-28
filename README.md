@@ -1,7 +1,7 @@
-[HTMLDocTree](http://www.nterms.com/tools/htmldoctree)
+[Twine](http://www.nterms.com/tools/twine)
 ======================================================
 
-**HTMLDocTree** is a simple tool that makes it easy to generates an HTML documention by merging a folder based set of HTML partials with a template. 
+**Twine** is a simple tool that makes it easy to generates an HTML documention by merging a folder based set of HTML partials with a template. 
 This tool embeds HTML snippts in each file inside the directory structure into a pre defined template. Template is also an HTML file which may be a common layout for the whole documentation.
 However this tool might not be suitable for large projects that might have more than 1000 files.
 
@@ -28,14 +28,14 @@ I have not tested all the cases where the code fails and really appriciate your 
 
 ### System requirements
 
-**HTMLDocTree** is a PHP script that should be hosted in a web server and accessed via web browser.
+**Twine** is a PHP script that should be hosted in a web server and accessed via web browser.
 
 - PHP 5.1+
 - Web browser (IE, FF, Chrome, Opera, Safari)
 
 ### Installation
 
-1. Download the **htmldoctree.php**
+1. Download the **twine.php**
 2. Upload it to the docroot of your server (or any folder of your choice)
 
 ### Sample usage
